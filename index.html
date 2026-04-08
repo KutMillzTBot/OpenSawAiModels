@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RICH Twin Hub</title>
+  <link rel="stylesheet" href="rich-site.css">
+</head>
+<body data-page="home">
+  <div id="lockscreen" class="lockscreen" aria-hidden="false">
+    <div class="lock-card">
+      <h1>RICH Twin Hub</h1>
+      <p>Enter the access code to unlock the command hub.</p>
+      <div class="lock-row">
+        <input id="lockPass" type="password" inputmode="numeric" autocomplete="off" placeholder="Access code">
+        <button id="unlockBtn" class="btn btn-primary" type="button">Unlock</button>
+      </div>
+      <div id="lockError" class="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="appRoot" class="app-shell" aria-hidden="true">
+    <div class="container">
+      <header>
+        <div class="brand">
+          <div class="brand-badge">R</div>
+          <div>RICH Twin Hub</div>
+        </div>
+        <nav>
+          <a href="index.html" data-page="home">Home</a>
+          <a href="deriv.html" data-page="deriv">Deriv API</a>
+          <a href="mt5.html" data-page="mt5">MT5</a>
+        </nav>
+        <div class="voice-controls">
+          <button class="btn btn-ghost" id="voiceCmdBtn" type="button">Voice Command</button>
+          <div class="status" id="voiceCmdStatus">Say "open mt5", "open deriv", "open digit analyzer", "start mt5", or "start backtest".</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-card">
+          <h2>Two AIs. One command hub.</h2>
+          <p>RICH powers Deriv API analysis while Twin RICH supervises MT5 execution. Pick your mode and launch the right console instantly.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="deriv.html">Enter Deriv Mode</a>
+            <a class="btn btn-ghost" href="mt5.html">Enter MT5 Mode</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Secure, voice-ready, and fast.</h2>
+          <p>Lockscreen protection, voice replies, and time-limited tokens keep your sessions safe while letting RICH take action where you approve.</p>
+          <div class="hero-actions">
+            <a class="btn btn-ghost" href="RICH-STARTUP.txt">Open Startup Guide</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Choose your mission</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Deriv Launcher</h4>
+            <p>Launch the Deriv tools and chat with RICH for strategy guidance and API-driven insights.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="deriv.html">Open Deriv Landing</a>
+            </div>
+          </div>
+          <div class="card">
+            <h4>MT5 Supervisor</h4>
+            <p>Twin RICH monitors MT5 order flow, system health, and execution control via FlowDesk.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mt5.html">Open MT5 Landing</a>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Digit Analyzer</h4>
+            <p>Over/under digit analytics with live signals, bot tools, and RICH voice coaching.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="deriv_digit_analyzer_v3.html">Open Digit Analyzer</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Quick checklist</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>1. Start services</h4>
+            <p>Run `rich-start.cmd` or `rich-start-tunnel.cmd` to boot RICH, Ollama, and the API tunnel.</p>
+          </div>
+          <div class="card">
+            <h4>2. Pick a mode</h4>
+            <p>Select Deriv or MT5. Each landing page guides you to the correct console and host settings.</p>
+          </div>
+          <div class="card">
+            <h4>3. Speak or type</h4>
+            <p>Use the Mic button for voice input and keep Speak Replies on for voice output.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>RICH Twin Hub - Secure mode enabled</footer>
+    </div>
+  </div>
+
+  <script src="rich-site.js"></script>
+</body>
+</html>

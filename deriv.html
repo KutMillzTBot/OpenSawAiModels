@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RICH Deriv Mode</title>
+  <link rel="stylesheet" href="rich-site.css">
+</head>
+<body data-page="deriv">
+  <div id="lockscreen" class="lockscreen" aria-hidden="false">
+    <div class="lock-card">
+      <h1>Deriv Mode</h1>
+      <p>Unlock to enter the Deriv API console.</p>
+      <div class="lock-row">
+        <input id="lockPass" type="password" inputmode="numeric" autocomplete="off" placeholder="Access code">
+        <button id="unlockBtn" class="btn btn-primary" type="button">Unlock</button>
+      </div>
+      <div id="lockError" class="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="appRoot" class="app-shell" aria-hidden="true">
+    <div class="container">
+      <header>
+        <div class="brand">
+          <div class="brand-badge">D</div>
+          <div>RICH - Deriv API</div>
+        </div>
+        <nav>
+          <a href="index.html" data-page="home">&larr; Back to Hub</a>
+          <a href="deriv.html" data-page="deriv">Deriv API</a>
+          <a href="mt5.html" data-page="mt5">MT5</a>
+        </nav>
+        <div class="voice-controls">
+          <button class="btn btn-ghost" id="voiceCmdBtn" type="button">Voice Command</button>
+          <div class="status" id="voiceCmdStatus">Say "open mt5", "open deriv", "open digit analyzer", "start mt5", or "start backtest".</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-card">
+          <h2>Deriv analytics, powered by RICH.</h2>
+          <p>Use the digit analyzer to spot streaks, automate signal logic, and chat with RICH using real-time dashboard context.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="openDerivBtn" type="button">Open Deriv Console</button>
+            <a class="btn btn-ghost" href="index.html">Back to Hub</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Launch checklist</h2>
+          <p>Make sure the RICH API server is running, then set your model + API host inside the console.</p>
+          <div class="grid">
+            <div class="card">
+              <h4>Step 1</h4>
+              <p>Start with `rich-start.cmd`.</p>
+            </div>
+            <div class="card">
+              <h4>Step 2</h4>
+              <p>Set API host to `http://127.0.0.1:8000` (or your Cloudflare URL).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Deriv focus</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Signals + streak logic</h4>
+            <p>RICH sees your last digits, streaks, and win/loss trends to guide decisions.</p>
+          </div>
+          <div class="card">
+            <h4>Voice control</h4>
+            <p>Use the Mic to talk to RICH and keep Speak Replies on for her voice.</p>
+          </div>
+          <div class="card">
+            <h4>Memory snapshots</h4>
+            <p>Save context notes so RICH can remember your preferences.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>RICH Deriv Mode - Secure mode enabled</footer>
+    </div>
+  </div>
+
+  <script src="rich-site.js"></script>
+</body>
+</html>

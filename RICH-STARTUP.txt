@@ -1,0 +1,167 @@
+RICH Startup Guide (April 6, 2026)
+==================================
+
+This guide shows how to start RICH locally, expose it to your phone,
+and manage time-limited API tokens via the admin console.
+
+
+1) Quick Start (Local PC)
+-------------------------
+1. Start the RICH backend:
+   C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-start.cmd
+
+   To stop it later:
+   C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-stop.cmd
+
+1b) One-Click Start + Cloudflare Tunnel
+---------------------------------------
+Start server + API tunnel together:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-start-tunnel.cmd
+
+Stop server + API tunnel together:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-stop-all.cmd
+
+2. Open the UI (GitHub Pages or local file):
+   - GitHub Pages: https://<user>.github.io/<repo>/index.html
+   - Local file: C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\index.html
+
+Hub pages:
+  - Home: index.html
+  - Deriv landing: deriv.html
+  - MT5 landing: mt5.html
+
+3. In the RICH AI tab:
+   - Model: your Ollama model (example: qwen3.5:2b)
+   - RICH API host: http://127.0.0.1:8000
+   - API key: read from C:\Users\Admin\.openjarvis\config.toml
+   - Speak replies: ON
+   - Use Mic to talk
+
+
+2) Phone Access (Cloudflare URL)
+--------------------------------
+1. Start API tunnel:
+   C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-tunnel.cmd
+
+2. Copy the HTTPS Cloudflare URL that appears (API host).
+
+3. Open your GitHub Pages UI on the phone:
+   https://<user>.github.io/<repo>/index.html
+
+4. In the RICH AI tab:
+   - RICH API host = the Cloudflare URL
+   - API key = your token (see section 5)
+
+
+3) Stable Cloudflare Hostnames (Optional)
+-----------------------------------------
+Requires a Cloudflare account + domain.
+
+API host:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-tunnel-named.cmd rich-api.example.com
+
+UI host:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-ui-tunnel-named.cmd rich-ui.example.com
+
+
+4) Admin Console (Time-Limited Tokens)
+--------------------------------------
+File:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\rich-admin.html
+
+Steps:
+1. Start the RICH backend.
+2. Open rich-admin.html in your browser.
+3. Login:
+   - Username: AMARIE
+   - Password: 2007
+4. Enter your API host (local or Cloudflare).
+5. Choose duration (minutes/hours/days/months).
+6. Click Generate token, then Copy token.
+7. You can Revoke the token any time.
+
+Admin console extras:
+  - Quick Actions: start/stop server or tunnels
+  - Learning Settings: enable/disable auto learning
+  - File Editor: safely edit approved UI files
+  - Learning Stats: view discovery metrics
+  - Revoke All Tokens: wipe all temp keys
+  - Action Approvals: generate auto-exec token for approved actions
+
+Tokens auto-expire and are no longer accepted after expiry.
+
+
+5) Where to Find Your Master API Key
+------------------------------------
+Your master key lives here:
+  C:\Users\Admin\.openjarvis\config.toml
+
+Look for:
+  [server.auth]
+  api_key = "oj_sk_..."
+
+Keep this key private. Use time-limited tokens for phone use.
+
+
+6) Voice Settings
+-----------------
+In the UI:
+  - TTS backend: kokoro
+  - Voice ID: af_heart
+  - Speak replies: ON
+
+
+7) Troubleshooting
+------------------
+- No response:
+  Check that the RICH server is running and the API host is correct.
+
+- 401 Unauthorized:
+  Wrong API key or expired token.
+
+- Mic not working:
+  The server speech backend may be missing. Install Faster-Whisper:
+    .\OpenJarvis\.venv\Scripts\python.exe -m pip install faster-whisper
+
+- Model not found:
+  Ensure Ollama is installed and the model exists:
+    ollama serve
+    ollama pull qwen3.5:2b
+
+
+8) Files You Can Upload to GitHub
+---------------------------------
+Upload:
+  - index.html
+  - deriv.html
+  - mt5.html
+  - rich-site.css
+  - rich-site.js
+  - deriv_digit_analyzer_v3.css
+  - deriv_digit_analyzer_v3.js
+  - rich-admin.html
+
+Action Auto-Execute (Optional)
+------------------------------
+1. Open rich-admin.html and login.
+2. Generate an Action Token (Action Approvals section).
+3. Paste the Action Token into the RICH UI.
+4. Turn on "Auto-run approved actions".
+5. When RICH responds with [[ACTION:...]] it will run the action automatically.
+
+Do NOT upload:
+  - C:\Users\Admin\.openjarvis\config.toml (contains secrets)
+  - OpenJarvis\ (backend code + config)
+Twin RICH (MT5) Supervisor
+--------------------------
+Start Twin RICH from the twin_rich folder:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\twin_rich\start_rich.ps1
+
+Open dashboard:
+  http://127.0.0.1:5001/dashboard
+
+Stop Twin RICH:
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\twin_rich\stop_rich.ps1
+
+Twin RICH voice setup (fix "Voice libs not installed"):
+  C:\Users\Admin\OneDrive\Documents\GUNSHOTBRO\twin-rich-voice-setup.cmd

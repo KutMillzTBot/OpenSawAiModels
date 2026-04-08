@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twin RICH - MT5 Mode</title>
+  <link rel="stylesheet" href="rich-site.css">
+</head>
+<body data-page="mt5">
+  <div id="lockscreen" class="lockscreen" aria-hidden="false">
+    <div class="lock-card">
+      <h1>MT5 Mode</h1>
+      <p>Unlock to enter the Twin RICH supervisor.</p>
+      <div class="lock-row">
+        <input id="lockPass" type="password" inputmode="numeric" autocomplete="off" placeholder="Access code">
+        <button id="unlockBtn" class="btn btn-primary" type="button">Unlock</button>
+      </div>
+      <div id="lockError" class="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="appRoot" class="app-shell" aria-hidden="true">
+    <div class="container">
+      <header>
+        <div class="brand">
+          <div class="brand-badge">M</div>
+          <div>Twin RICH - MT5 Supervisor</div>
+        </div>
+        <nav>
+          <a href="index.html" data-page="home">&larr; Back to Hub</a>
+          <a href="deriv.html" data-page="deriv">Deriv API</a>
+          <a href="mt5.html" data-page="mt5">MT5</a>
+        </nav>
+        <div class="voice-controls">
+          <button class="btn btn-ghost" id="voiceCmdBtn" type="button">Voice Command</button>
+          <div class="status" id="voiceCmdStatus">Say "open mt5", "open deriv", "open digit analyzer", "start mt5", or "start backtest".</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-card">
+          <h2>MT5 execution with Twin RICH oversight.</h2>
+          <p>Monitor MT5 order flow, system health, and FlowDesk controls in the Twin RICH dashboard.</p>
+          <div class="input-row">
+            <div>
+              <label for="mt5HostInput">Twin RICH host</label>
+              <input id="mt5HostInput" placeholder="http://127.0.0.1:5001">
+            </div>
+            <div>
+              <label for="flowHostInput">FlowDesk host</label>
+              <input id="flowHostInput" placeholder="http://127.0.0.1:5055">
+            </div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="openMt5Btn" type="button">Open Twin RICH Dashboard</button>
+            <button class="btn btn-ghost" id="openFlowBtn" type="button">Open FlowDesk</button>
+          </div>
+          <div class="automation">
+            <label><input type="checkbox" id="autoStartMt5"> Auto-start MT5 when this page unlocks</label>
+            <label><input type="checkbox" id="autoStartBacktest"> Auto-start backtest when this page unlocks</label>
+          </div>
+          <div class="status">Auto-start uses your action token from the admin panel.</div>
+          <div class="status">Default dashboard: `http://127.0.0.1:5001/dashboard`</div>
+        </div>
+        <div class="hero-card">
+          <h2>Launch checklist</h2>
+          <p>Run the supervisor script, confirm MT5 path, then open the dashboard.</p>
+          <div class="grid">
+            <div class="card">
+              <h4>Step 1</h4>
+              <p>Run `start_rich.ps1` from the `twin_rich` folder.</p>
+            </div>
+            <div class="card">
+              <h4>Step 2</h4>
+              <p>Use the host inputs above or tunnel for remote access.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Twin RICH capabilities</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>System doctor</h4>
+            <p>Continuous audits for MT5 health, latency, and safety conditions.</p>
+          </div>
+          <div class="card">
+            <h4>Order flow gating</h4>
+            <p>Auto-gate execution based on backtest thresholds and risk limits.</p>
+          </div>
+          <div class="card">
+            <h4>Voice + chat</h4>
+            <p>Talk to Twin RICH and review decision logs in the dashboard.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>Twin RICH MT5 Mode - Secure mode enabled</footer>
+    </div>
+  </div>
+
+  <script src="rich-site.js"></script>
+</body>
+</html>
