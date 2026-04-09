@@ -41,6 +41,7 @@ let richSpeechBackend = "";
 let richRecognition = null;
 
 const LOCK_CODE = "2007";
+const DEFAULT_TUNNEL_HOST = "https://est-spencer-seas-senators.trycloudflare.com";
 
 const DC = [
   { bg: "#E6F1FB", tc: "#0C447C" },
@@ -717,8 +718,22 @@ function initRichChat() {
   }
   if (apiHostInput) {
     const savedHost = localStorage.getItem("richApiHost") || "";
+    const isRemote = window.location.protocol === "https:" &&
+      !["localhost", "127.0.0.1"].includes(window.location.hostname);
+    const looksLocal = /127\.0\.0\.1|localhost/.test(savedHost);
+    let defaultHost = savedHost;
+    if (isRemote) {
+      if (!defaultHost || looksLocal) defaultHost = DEFAULT_TUNNEL_HOST;
+    } else if (!defaultHost) {
+      defaultHost = window.location.hostname
+        ? `${window.location.hostname}:8000`
+        : "127.0.0.1:8000";
+    }
     if (!apiHostInput.value) {
-      apiHostInput.value = savedHost || (window.location.hostname ? `${window.location.hostname}:8000` : "127.0.0.1:8000");
+      apiHostInput.value = defaultHost || "";
+    }
+    if (defaultHost) {
+      localStorage.setItem("richApiHost", defaultHost);
     }
     apiHostInput.addEventListener("change", () => {
       localStorage.setItem("richApiHost", apiHostInput.value.trim());
